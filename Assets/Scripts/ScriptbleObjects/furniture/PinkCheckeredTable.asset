@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1df1cf2858c1294cb99fe665f03258d, type: 3}
+  m_Name: PinkCheckeredTable
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5940373894136951332, guid: 0e3308b17fc154547b02cf731a198fb8, type: 3}
+  rank: 4
+  cost: 100
+  cute: 5
+  modern: 2
+  classic: 3

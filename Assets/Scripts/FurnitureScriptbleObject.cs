@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurnitureScriptbleObject : MonoBehaviour
+[CreateAssetMenu(fileName = "FurnitureScriptbleObject", menuName = "ScriptbleObjects/furniture")]
+public class FurnitureScriptbleObject : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject prefab;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int rank;
+    public int cost;
+
+    [Header("Item type matching (from 1 to 5)")]
+    public int cute;
+    public int modern;
+    public int classic;
 }
