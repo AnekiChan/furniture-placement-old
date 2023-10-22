@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Furniture
+  - Decor
+  - DecorOnFurniture
   layers:
   - Default
   - TransparentFX
@@ -40,4 +43,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2446449291
+    locked: 0
+  - name: Furniture
+    uniqueID: 1529670829
+    locked: 0
+  - name: Decor
+    uniqueID: 957655753
     locked: 0

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1df1cf2858c1294cb99fe665f03258d, type: 3}
-  m_Name: PinkCheckeredTable
+  m_Name: Stove
   m_EditorClassIdentifier: 
-  _name: Pink table
-  _uiIcon: {fileID: 21300000, guid: 8ce0db0bd59d4cd4999d0ff1f5a47adb, type: 3}
-  prefab: {fileID: 5940373894136951332, guid: 0e3308b17fc154547b02cf731a198fb8, type: 3}
-  rank: 4
+  _name: Stove
+  _uiIcon: {fileID: 21300000, guid: 130f63ba521014f4cabee9d5f16993d1, type: 3}
+  prefab: {fileID: 4125210648523629074, guid: b87c47ef311a123469ebef1afff8f1df, type: 3}
+  rank: 2
   cost: 100
-  cute: 5
-  modern: 2
-  classic: 3
+  cute: 3
+  modern: 4
+  classic: 2

@@ -9,10 +9,12 @@ public class DragSystem : MonoBehaviour
     private SpriteRenderer sprite;
     private Vector2 startPosirion;
     private bool isTouchingSomething = false;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         startPosirion = transform.position;
     }
 
@@ -23,7 +25,7 @@ public class DragSystem : MonoBehaviour
 
     private void OnMouseDrag()
     {
-                transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
+        transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
         //transform.position = Vector2.MoveTowards(transform.position, ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference), 100 * Time.deltaTime);
 
         if (isTouchingSomething)
@@ -39,16 +41,31 @@ public class DragSystem : MonoBehaviour
         }
         sprite.color = new Color(1, 1, 1, 1);
         startPosirion = transform.position;
+        spriteRenderer.sortingOrder = -(int)(transform.position.y * 100);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isTouchingSomething = true;
+        if (gameObject.tag == "Decor" && collision.tag == "Furniture" && gameObject.transform.parent == null)
+        {
+            //isTouchingSomething = false;
+            gameObject.transform.SetParent(collision.transform, false);
+        }
+        else if (gameObject.tag == "Furniture" && collision.tag == "Decor")
+        {
+            isTouchingSomething = false;
+        }
+        else
+            isTouchingSomething = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         isTouchingSomething = false;
+        if (gameObject.transform.IsChildOf(collision.transform))
+        {
+            gameObject.transform.parent = null;
+        }
         //sprite.color = new Color(1, 1, 1, 1);
     }
 }

@@ -1,10 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "FurnitureScriptbleObject", menuName = "ScriptbleObjects/furniture")]
-public class FurnitureScriptbleObject : ScriptableObject
+public class FurnitureScriptbleObject : ScriptableObject, IFurniture
 {
+    public string Name => _name;
+    public Sprite UIIcon => _uiIcon;
+    public GameObject Pref => prefab;
+
+    [SerializeField] private string _name;
+    [SerializeField] private Sprite _uiIcon;
+
     public GameObject prefab;
 
     public int rank;
