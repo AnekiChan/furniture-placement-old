@@ -10,6 +10,7 @@ public class DragSystem : MonoBehaviour
     private Vector2 startPosirion;
     private bool isTouchingSomething = false;
     private SpriteRenderer spriteRenderer;
+    private bool _isDeleting = false;
 
     private void Awake()
     {
@@ -20,13 +21,17 @@ public class DragSystem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        difference = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
+        if (!_isDeleting)
+            difference = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
+        else
+        {
+            DeleteObject();
+        }
     }
 
     private void OnMouseDrag()
     {
         transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
-        //transform.position = Vector2.MoveTowards(transform.position, ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference), 100 * Time.deltaTime);
 
         if (isTouchingSomething)
             sprite.color = new Color(1, 0.5f, 0.5f, 0.7f);
@@ -66,6 +71,34 @@ public class DragSystem : MonoBehaviour
         {
             gameObject.transform.parent = null;
         }
-        //sprite.color = new Color(1, 1, 1, 1);
+    }
+
+    private void ChangeDeletingStatus()
+    {
+        _isDeleting = !_isDeleting;
+    }
+
+    private void OnEnable()
+    {
+        DeleteObjects.onDeleted += ChangeDeletingStatus;
+    }
+
+    private void OnDisable()
+    {
+        DeleteObjects.onDeleted -= ChangeDeletingStatus;
+    }
+
+    private void DeleteObject()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+        if (hit.collider != null)
+        {
+            foreach (Transform child in hit.collider.gameObject.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            Destroy(hit.collider.gameObject);
+        }
     }
 }
