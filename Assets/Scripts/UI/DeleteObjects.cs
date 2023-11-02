@@ -27,6 +27,7 @@ public class DeleteObjects : MonoBehaviour
             _buttonColor.color = Color.red;
             _inventory.SetActive(false);
         }
+
         _isButtonPressed = !_isButtonPressed;
         onDeleted?.Invoke();
     }
