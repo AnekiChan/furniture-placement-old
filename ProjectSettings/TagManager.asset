@@ -53,3 +53,6 @@ TagManager:
   - name: Decor
     uniqueID: 957655753
     locked: 0
+  - name: Creatures
+    uniqueID: 1026963889
+    locked: 0
