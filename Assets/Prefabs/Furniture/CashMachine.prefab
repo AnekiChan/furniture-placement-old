@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7978223144543105548}
   - component: {fileID: 3302227022274672585}
   - component: {fileID: 4200046008789598208}
+  - component: {fileID: 2205983509513292367}
   m_Layer: 0
   m_Name: CashMachine
   m_TagString: Decor
@@ -146,3 +147,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec20e7a9ccf2214aa0f51682672be74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2205983509513292367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7926687416495768147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63108f12760083c429647c99b51a81f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureScriptbleObject: {fileID: 11400000, guid: cca49dbb6aaee944682e2606a68d1baf, type: 2}

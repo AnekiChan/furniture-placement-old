@@ -7,6 +7,7 @@ TagManager:
   - Furniture
   - Decor
   - DecorOnFurniture
+  - Creature
   layers:
   - Default
   - TransparentFX
@@ -55,4 +56,7 @@ TagManager:
     locked: 0
   - name: Creatures
     uniqueID: 1026963889
+    locked: 0
+  - name: UI
+    uniqueID: 751889961
     locked: 0

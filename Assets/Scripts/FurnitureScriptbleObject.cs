@@ -15,6 +15,8 @@ public class FurnitureScriptbleObject : ScriptableObject, IFurniture
 
     public int rank;
     public int cost;
+    public bool isSitting;
+    public bool iSOccupied;
 
     [Header("Item type matching (from 1 to 5)")]
     public int cute;

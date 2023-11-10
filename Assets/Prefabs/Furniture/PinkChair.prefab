@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1806126268605737056}
   - component: {fileID: 216117836683135767}
   - component: {fileID: -8334509376957993210}
+  - component: {fileID: 3075053906885532095}
   m_Layer: 0
   m_Name: PinkChair
   m_TagString: Furniture
@@ -136,3 +137,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &3075053906885532095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834765363260021933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63108f12760083c429647c99b51a81f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureScriptbleObject: {fileID: 11400000, guid: 1639b0e370b4d8f489fec544880c5f01, type: 2}

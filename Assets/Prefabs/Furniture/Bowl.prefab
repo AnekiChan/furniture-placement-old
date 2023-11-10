@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6494153104461982420}
   - component: {fileID: 121011368771574452}
   - component: {fileID: 4988952834792043026}
+  - component: {fileID: 1095663196266304880}
   m_Layer: 0
   m_Name: Bowl
   m_TagString: Decor
@@ -136,3 +137,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec20e7a9ccf2214aa0f51682672be74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1095663196266304880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4372454413606962264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63108f12760083c429647c99b51a81f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureScriptbleObject: {fileID: 11400000, guid: bd068ca0413e6f94083a8c6611e8f3d1, type: 2}

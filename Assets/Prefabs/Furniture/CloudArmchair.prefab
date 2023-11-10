@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2225465524801049062}
   - component: {fileID: 3953825168738436340}
+  - component: {fileID: 5310507657158884246}
   - component: {fileID: 1888617908731494573}
   - component: {fileID: 3013708253447986443}
-  - component: {fileID: 5310507657158884246}
+  - component: {fileID: 4892526479588528718}
   m_Layer: 0
   m_Name: CloudArmchair
   m_TagString: Furniture
@@ -87,6 +88,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &5310507657158884246
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8456160073813681161}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06, y: -0.14}
+  m_Size: {x: 1.36, y: 1.13}
+  m_Direction: 1
 --- !u!50 &1888617908731494573
 Rigidbody2D:
   serializedVersion: 4
@@ -120,19 +137,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec20e7a9ccf2214aa0f51682672be74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!70 &5310507657158884246
-CapsuleCollider2D:
+--- !u!114 &4892526479588528718
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8456160073813681161}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: -0.29}
-  m_Size: {x: 1.36, y: 0.88}
-  m_Direction: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63108f12760083c429647c99b51a81f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureScriptbleObject: {fileID: 11400000, guid: 485574f4602b7d447a38295cc6112367, type: 2}

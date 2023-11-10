@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8886241264854079997}
   - component: {fileID: 4489163217345640749}
   - component: {fileID: 3869444670471255127}
+  - component: {fileID: -1067764438547618941}
   m_Layer: 0
   m_Name: Bush1
   m_TagString: Furniture
@@ -136,3 +137,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec20e7a9ccf2214aa0f51682672be74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1067764438547618941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727402351014745292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63108f12760083c429647c99b51a81f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureScriptbleObject: {fileID: 11400000, guid: b6b0ac37787aa904e98fa1874f40e4fe, type: 2}

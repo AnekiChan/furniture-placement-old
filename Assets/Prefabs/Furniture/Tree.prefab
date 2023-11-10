@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1087247565136819461}
   - component: {fileID: 7317228013200861841}
   - component: {fileID: -6617326767902199326}
+  - component: {fileID: -7361671526322455947}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Furniture
@@ -146,3 +147,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec20e7a9ccf2214aa0f51682672be74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7361671526322455947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395417364689566967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63108f12760083c429647c99b51a81f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureScriptbleObject: {fileID: 11400000, guid: 0634e1fdc27ed4f47b846640117b26ac, type: 2}
