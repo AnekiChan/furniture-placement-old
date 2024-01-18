@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private List<FurnitureScriptbleObject> Furnitures;
+    [SerializeField] private List<FurnitureScriptbleObject> InteriorFurnitures;
+    [SerializeField] private List<FurnitureScriptbleObject> ExteriorFurnitures;
     [SerializeField] private InventoryCell _inventoryCellTemplate;
     [SerializeField] private Transform _container;
     [SerializeField] private Transform _draggingParent;
 
     public void OnEnable()
     {
-        Render(Furnitures);
+        Render(ExteriorFurnitures);
     }
 
     public void Render(List<FurnitureScriptbleObject> furnitures)
@@ -27,6 +28,16 @@ public class Inventory : MonoBehaviour
             //cell.Init(_draggingParent);
             cell.Render(furniture);
         });
+    }
+
+    public void RenderInterior()
+    {
+        Render(InteriorFurnitures);
+    }
+
+    public void RenderExterior()
+    {
+        Render(ExteriorFurnitures);
     }
 
     private void OnMouseDown()

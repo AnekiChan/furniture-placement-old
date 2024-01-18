@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -45,13 +46,20 @@ public class InventoryCell : MonoBehaviour
         rayOrigin.x += Random.Range(0f, 2f);
         rayOrigin.y += Random.Range(0f, 2f);
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero);
-        if (hit.collider != null && hit.collider.gameObject.tag != "Building")
+        if (hit.collider != null)
         {
-            Debug.Log("На экране нет места, передвиньте предметы");
+            if (!(_furniturePref.GetComponent<Furniture>().furnitureScriptbleObject.isInterior) && hit.collider.tag == "Building")
+            {
+                Debug.Log("Нельзя поставить предметы экстерьера в этой зоне");
+            }
+            else
+                Debug.Log("Нет места");
         }
         else
         {
-            Instantiate(_furniturePref, rayOrigin, Quaternion.identity);
+            if (!_furniturePref.GetComponent<Furniture>().furnitureScriptbleObject.isInterior)
+                Instantiate(_furniturePref, rayOrigin, Quaternion.identity);
+            Debug.Log("Нельзя поставить предметы интерьера в этой зоне");
         }
         //Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Instantiate(_furniturePref, pos, Quaternion.identity);

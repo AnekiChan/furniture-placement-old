@@ -15,6 +15,7 @@ public class FurnitureScriptbleObject : ScriptableObject, IFurniture
 
     public int rank;
     public int cost;
+    public bool isInterior;
     public bool isSitting;
     public bool iSOccupied;
 

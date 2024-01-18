@@ -17,6 +17,9 @@ MonoBehaviour:
   prefab: {fileID: 4372454413606962264, guid: 77e7a075e592ca541ba4d2957e89769c, type: 3}
   rank: 1
   cost: 2
+  isInterior: 0
+  isSitting: 0
+  iSOccupied: 0
   cute: 1
   modern: 1
   classic: 1

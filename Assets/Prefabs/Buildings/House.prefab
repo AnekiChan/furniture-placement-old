@@ -92,7 +92,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8837399286253620130}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -388,7 +388,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8837399286457167469}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -569,7 +569,8 @@ GameObject:
   - component: {fileID: 8837399287138114006}
   - component: {fileID: 8837399287138114004}
   - component: {fileID: 8837399287138114011}
-  - component: {fileID: 6375344326162811415}
+  - component: {fileID: 4469605809674044613}
+  - component: {fileID: 7146601591729650742}
   m_Layer: 0
   m_Name: House
   m_TagString: Building
@@ -668,7 +669,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6375344326162811415
+--- !u!60 &4469605809674044613
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837399287138114007}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 9.9332695, y: 8.362075}
+      - {x: -0.043165684, y: 14.023346}
+      - {x: -9.866718, y: 8.393558}
+      - {x: -9.956786, y: 0.022103429}
+      - {x: 0.058890224, y: -5.8712997}
+      - {x: 9.942275, y: 0.044569433}
+--- !u!114 &7146601591729650742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -677,10 +709,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8837399287138114007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63108f12760083c429647c99b51a81f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 34d37ee25d52387499d76a42b2785f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureScriptbleObject: {fileID: 11400000, guid: 27164b3120458c74e822350ef720528f, type: 2}
+  _mainCollider: {fileID: 4469605809674044613}
+  _floorCollider: {fileID: 8837399287765796987}
+  _leftWallCollider: {fileID: 8837399286253620128}
+  _rightWallCollider: {fileID: 8837399286457167763}
 --- !u!1 &8837399287765796982
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,8 +728,8 @@ GameObject:
   - component: {fileID: 8837399287765796980}
   - component: {fileID: 8837399287765796987}
   m_Layer: 0
-  m_Name: Ground
-  m_TagString: Building
+  m_Name: Floor
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -773,7 +808,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8837399287765796982}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

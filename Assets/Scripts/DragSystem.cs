@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 
 public class DragSystem : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class DragSystem : MonoBehaviour
     private bool isTouchingSomething = false;
     public Collider2D _whatIsTouching;
     private SpriteRenderer spriteRenderer;
-    private bool _isDeleting = false;
+    //private bool _isDeleting = false;
 
     private bool _isMoving = false;
 
@@ -22,18 +23,31 @@ public class DragSystem : MonoBehaviour
         startPosirion = transform.position;
     }
 
-    private void OnMouseDown()
+    private void OnEnable()
     {
-        if (!_isDeleting)
+        EditMode.onEdited += ChangeToEditMode;
+    }
+    private void OnDisable()
+    {
+        EditMode.onEdited -= ChangeToEditMode;
+    }
+
+    public void ChangeToEditMode(bool isEditing)
+    {
+        if (isEditing)
         {
-            gameObject.transform.parent = null;
-            difference = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
+            gameObject.GetComponent<Collider2D>().enabled = true;
         }
-            
         else
         {
-            DeleteObject();
+            gameObject.GetComponent<Collider2D>().enabled = false;
         }
+    }
+
+    private void OnMouseDown()
+    {
+        gameObject.transform.parent = null;
+        difference = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
     }
 
     private void OnMouseDrag()
@@ -42,9 +56,7 @@ public class DragSystem : MonoBehaviour
         transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
         if (isTouchingSomething && _whatIsTouching != null)
         {
-            if (gameObject.tag == "Decor" && _whatIsTouching.tag != "Decor")
-                sprite.color = new Color(1, 1, 1, 0.7f);
-            else if (gameObject.tag == "Furniture" && _whatIsTouching.tag == "Building")
+            if (gameObject.tag == "Decor" && _whatIsTouching.tag == "Furniture")
                 sprite.color = new Color(1, 1, 1, 0.7f);
             else
                 sprite.color = new Color(1, 0.5f, 0.5f, 0.7f);
@@ -64,22 +76,19 @@ public class DragSystem : MonoBehaviour
                     {
                         if (gameObject.tag == "Decor")
                             gameObject.transform.SetParent(_whatIsTouching.transform, true);
-                        else if (gameObject.tag != "Building")
+                        else
                             transform.position = startPosirion;
                     }
                     break;
                 case "Decor":
                     {
-                        if (gameObject.tag == "Decore")
+                        if (!(gameObject.tag == "Furniture" && gameObject.transform.childCount != 0))
                             transform.position = startPosirion;
                     }
                     break;
                 case "Building":
                     {
-                        if (gameObject.tag != "Building")
-                            gameObject.transform.SetParent(_whatIsTouching.transform, true);
-                        else
-                            transform.position = startPosirion;
+                        transform.position = startPosirion;
                     }
                     break;
             }
@@ -117,6 +126,7 @@ public class DragSystem : MonoBehaviour
         }
     }
 
+    /*
     private void ChangeDeletingStatus()
     {
         _isDeleting = !_isDeleting;
@@ -145,4 +155,5 @@ public class DragSystem : MonoBehaviour
             Destroy(hit.collider.gameObject);
         }
     }
+    */
 }
