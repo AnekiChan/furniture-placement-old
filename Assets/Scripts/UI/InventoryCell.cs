@@ -45,7 +45,7 @@ public class InventoryCell : MonoBehaviour
         rayOrigin.x += Random.Range(0f, 2f);
         rayOrigin.y += Random.Range(0f, 2f);
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.zero);
-        if (hit.collider != null)
+        if (hit.collider != null && hit.collider.gameObject.tag != "Building")
         {
             Debug.Log("На экране нет места, передвиньте предметы");
         }

@@ -57,4 +57,11 @@ public class Creature : MonoBehaviour
                 break;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "LeftWall" || collision.gameObject.tag == "RightWall")
+            IsStateEnd = true;
+    }
 }

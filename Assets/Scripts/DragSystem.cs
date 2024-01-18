@@ -51,6 +51,8 @@ public class DragSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.tag);
+
         if (gameObject.tag == "Decor" && collision.tag == "Furniture" && gameObject.transform.parent == null)
         {
             //isTouchingSomething = false;
@@ -58,7 +60,15 @@ public class DragSystem : MonoBehaviour
         }
         else if (gameObject.tag == "Furniture" && collision.tag == "Decor")
         {
-            isTouchingSomething = false;
+            isTouchingSomething = true;
+        }
+        else if (collision.tag == "Building")
+        {
+            gameObject.transform.SetParent(collision.transform, false);
+        }
+        else if (collision.tag == "LeftWall" || collision.tag == "RightWall")
+        {
+            isTouchingSomething = true;
         }
         else
             isTouchingSomething = true;

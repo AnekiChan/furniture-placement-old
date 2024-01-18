@@ -19,7 +19,16 @@ public class WalkState : State
         //Debug.Log("walk enter");
         _speed = _creature.speed;
         _creature.Animator.SetFloat("Speed", _speed);
-        _newPosition = new Vector3(_creature.transform.position.x + Random.Range(-7f, 7f), _creature.transform.position.y + Random.Range(-7f, 7f), 0f);
+        _newPosition = new Vector2(_creature.transform.position.x + Random.Range(-7f, 7f), _creature.transform.position.y + Random.Range(-7f, 7f));
+        
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_newPosition, 0.001f);  // если точка находитс€ в стене, то отмен€ем действие
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag == "LeftWall" || collider.gameObject.tag == "RightWall")
+            {
+                _creature.IsStateEnd = true;
+            }
+        }
     }
 
     public override void Exit()
@@ -40,4 +49,5 @@ public class WalkState : State
             _creature.IsStateEnd = true;
         }
     }
+
 }

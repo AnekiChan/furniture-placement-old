@@ -8,6 +8,9 @@ TagManager:
   - Decor
   - DecorOnFurniture
   - Creature
+  - LeftWall
+  - RightWall
+  - Building
   layers:
   - Default
   - TransparentFX
@@ -47,6 +50,12 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2446449291
+    locked: 0
+  - name: Buildings
+    uniqueID: 3208609161
+    locked: 0
+  - name: Colliders
+    uniqueID: 2738895791
     locked: 0
   - name: Furniture
     uniqueID: 1529670829
