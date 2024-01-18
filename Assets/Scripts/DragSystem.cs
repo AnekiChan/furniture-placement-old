@@ -40,15 +40,22 @@ public class DragSystem : MonoBehaviour
     {
         _isMoving = true;
         transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
-
-        if (isTouchingSomething)
-            sprite.color = new Color(1, 0.5f, 0.5f, 0.7f);
+        if (isTouchingSomething && _whatIsTouching != null)
+        {
+            if (gameObject.tag == "Decor" && _whatIsTouching.tag != "Decor")
+                sprite.color = new Color(1, 1, 1, 0.7f);
+            else if (gameObject.tag == "Furniture" && _whatIsTouching.tag == "Building")
+                sprite.color = new Color(1, 1, 1, 0.7f);
+            else
+                sprite.color = new Color(1, 0.5f, 0.5f, 0.7f);
+        }
         else
             sprite.color = new Color(1, 1, 1, 0.7f);
+
     }
     private void OnMouseUp()
     {
-        if(isTouchingSomething == true)
+        if(_whatIsTouching != null)
         {
             Debug.Log(_whatIsTouching.tag);
             switch (_whatIsTouching.tag)
@@ -57,13 +64,14 @@ public class DragSystem : MonoBehaviour
                     {
                         if (gameObject.tag == "Decor")
                             gameObject.transform.SetParent(_whatIsTouching.transform, true);
-                        else
+                        else if (gameObject.tag != "Building")
                             transform.position = startPosirion;
                     }
                     break;
                 case "Decor":
                     {
-                        transform.position = startPosirion;
+                        if (gameObject.tag == "Decore")
+                            transform.position = startPosirion;
                     }
                     break;
                 case "Building":
@@ -90,25 +98,7 @@ public class DragSystem : MonoBehaviour
 
         if (_isMoving)
         {
-            if (gameObject.tag == "Decor" && collision.tag == "Furniture" && gameObject.transform.parent == null)
-            {
-                //isTouchingSomething = false;
-                //gameObject.transform.SetParent(collision.transform, true);
-            }
-            else if (gameObject.tag == "Furniture" && collision.tag == "Decor")
-            {
-                isTouchingSomething = true;
-            }
-            else if (collision.tag == "Building")
-            {
-                //gameObject.transform.SetParent(collision.transform, true);
-            }
-            else if (collision.tag == "LeftWall" || collision.tag == "RightWall")
-            {
-                isTouchingSomething = true;
-            }
-            else
-                isTouchingSomething = true;
+            isTouchingSomething = true;
         }
     }
 

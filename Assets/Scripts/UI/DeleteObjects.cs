@@ -20,12 +20,12 @@ public class DeleteObjects : MonoBehaviour
         if (_isButtonPressed)
         {
             _buttonColor.color = Color.white;
-            _inventory.SetActive(true);
+            //_inventory.SetActive(true);
         }
         else
         {
             _buttonColor.color = Color.red;
-            _inventory.SetActive(false);
+            //_inventory.SetActive(false);
         }
 
         _isButtonPressed = !_isButtonPressed;
